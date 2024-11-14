@@ -32,4 +32,4 @@ let salida = document.getElementById("salida");
  profesores1.forEach((profesor) => {
     salida.innerHTML += `Nombre: ${profesor.nombre} - Sexo: ${profesor.sexo} <br>`
  }
-) (profesoresCategoria(array,5))
+) 
