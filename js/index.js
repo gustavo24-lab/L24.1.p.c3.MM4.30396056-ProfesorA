@@ -10,24 +10,26 @@ Parámetros: profesores (array de objetos profesor), categoria (un número).
 Retorno: array de objetos profesor que pertenecen a la categoría indicada.
 
 */
-let profesoresCategoria = (array, categoria) =>{
-    let nombres = [];
-    for (let i = 0; i <array.length;i++){
-        if(array[i].categorias==categoria){
-            nombres.push(array[i].nombre)
-        }
-    }
-    return nombres
-}
-let array =[
+let profesores =[
 {categorias: 1, nombre:"Ana", sexo: "F"},
 {categorias: 2, nombre:"Maria", sexo: "F"},
 {categorias: 3, nombre:"Pedro", sexo: "M"},
 {categorias: 4, nombre:"Diego", sexo: "M"},
 {categorias: 5, nombre:"Fabiana", sexo: "F"},
 ]
-let salida = document.getElementById("salida");
+let profesoresCategoria = (profesores, categoria) =>{
+    let profesoresFiltrados = [];
+   profesores.forEach((profesor) => {
+    if(profesor.categorias == categoria) profesoresFiltrados.push(profesor)
+   })
+return profesoresFiltrados
+        }
 
-salida.innerHTML = JSON.stringify(profesoresCategoria(array,1))
-salida.innerHTML +="<br>" + JSON.stringify(profesoresCategoria(array,3))
-salida.innerHTML +="<br>" + JSON.stringify(profesoresCategoria(array,5))
+  
+let salida = document.getElementById("salida");
+ let profesores1 = profesoresCategoria(profesores,1)
+ salida.innerHTML = `Profesores de la categoria 1:<br>`
+ profesores1.forEach((profesor) => {
+    salida.innerHTML += `Nombre: ${profesor.nombre} - Sexo: ${profesor.sexo} <br>`
+ }
+) (profesoresCategoria(array,5))
